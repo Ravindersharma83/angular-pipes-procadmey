@@ -1,4 +1,8 @@
 <div class="container">
+  <!--filter pipe-->
+  <div>
+    <input type="text" placeholder="Search by gender" class="w-50 p-2 m-4" [(ngModel)]="filterText"/>
+  </div>
   <table class="table">
     <thead>
       <tr>
@@ -10,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let std of students.students ">
+      <tr *ngFor="let std of students?.students | filterStudent: filterText ">
         <th scope="row">{{std.name}}</th>
         <td>{{std.course}}</td>
         <td>{{std.marks}}</td>
